@@ -1,0 +1,7 @@
+User registration/login API example
+CRUD routes for your models?
+Testing setup?
+
+
+set PYTHONPATH=C:\laragon\www\echoflow
+pytest tests/test_admin_auth.py

@@ -1,0 +1,37 @@
+<aside class="sidebar print:hidden">
+  <div class="main-sidebar">
+    <div class="flex h-full w-full flex-col items-center border-r border-slate-150 bg-gradient-to-b from-white to-slate-100 dark:from-navy-800 dark:to-navy-900 shadow-md">
+      <div class="flex pt-6 pb-4">
+        <a href="/">
+          <img src="/static/images/app-logo.svg" alt="EchoFlow logo"
+            class="size-12 rounded-xl bg-gradient-to-tr from-primary/10 to-accent/10 p-2 shadow transition-transform duration-500 ease-in-out hover:rotate-[360deg]" style="margin-top:-18px" />
+        </a>
+      </div>
+      <nav class="is-scrollbar-hidden flex grow flex-col space-y-3 overflow-y-auto pt-2">
+        {% set nav_items = [
+          {"icon": "fa-chart-bar", "label": "Dashboard", "href": "/dashboard", "key": "dashboard"},
+          {"icon": "fa-th", "label": "Apps", "href": "/apps", "key": "apps"},
+          {"icon": "fa-layer-group", "label": "Layouts", "href": "/layouts", "key": "layouts"},
+          {"icon": "fa-file-alt", "label": "Forms", "href": "/forms", "key": "forms"},
+          {"icon": "fa-puzzle-piece", "label": "Components", "href": "/components", "key": "components"},
+          {"icon": "fa-shapes", "label": "Elements", "href": "/elements", "key": "elements"},
+        ] %}
+        {% for item in nav_items %}
+        <a href="{{ item.href }}"
+           class="group flex size-12 items-center justify-center rounded-xl transition-all duration-200
+           {% if active_page == item.key %}
+             bg-primary/90 text-white shadow-lg scale-110
+           {% else %}
+             text-slate-600 dark:text-navy-100 hover:bg-primary/10 dark:hover:bg-navy-400/30 hover:text-primary
+           {% endif %}"
+           x-tooltip.placement.right="'{{ item.label }}'">
+          <i class="fas {{ item.icon }} text-xl"></i>
+        </a>
+        {% endfor %}
+      </nav>
+      <div class="flex flex-col items-center gap-2 py-4">
+        {% include 'admin/partials/user-profile-menu.html' %}
+      </div>
+    </div>
+  </div>
+</aside>

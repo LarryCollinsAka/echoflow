@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" :class="{ 'dark': $store.global.isDarkModeEnabled }">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}EchoFlow Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/app.css" />
+    <link rel="icon" type="image/png" href="/static/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script defer src="/static/js/app.js"></script>
+    <script>
+      localStorage.getItem("_x_darkMode_on") === "true" &&
+        document.documentElement.classList.add("dark");
+    </script>
+  </head>
+  <body x-data class="is-header-blur" x-bind="$store.global.documentBody">
+    <div
+      class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900"
+    >
+      <div class="app-preloader-inner relative inline-block size-48"></div>
+    </div>
+    <div
+      id="root"
+      class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900"
+      x-cloak
+    >
+      {% include "admin/partials/sidebar.html" %} 
+      {% include "admin/partials/sidebar-panel.html" %}
+      <main class="main-content w-full px-[var(--margin-x)] pb-8">
+        {% include "admin/partials/header.html" %}
+
+        {% block content %}{% endblock %}
+        
+      </main>
+      {% include "admin/partials/right-sidebar.html" %}
+    </div>
+    <div id="x-teleport-target"></div>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => Alpine.start());
+    </script>
+  </body>
+</html>

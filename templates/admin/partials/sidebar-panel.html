@@ -1,0 +1,25 @@
+<div class="sidebar-panel hidden lg:flex flex-col bg-white pl-[var(--main-sidebar-width)] dark:bg-navy-750 border-r border-slate-150 dark:border-navy-700 min-w-[260px] max-w-xs">
+  <div class="flex h-18 w-full items-center justify-between pl-4 pr-1 border-b border-slate-150 dark:border-navy-700">
+    <p class="text-base tracking-wider text-slate-800 dark:text-navy-100 font-bold">Dashboards</p>
+    <button
+      @click="$store.global.isSidebarExpanded = false"
+      class="btn size-7 rounded-full p-0 text-primary hover:bg-slate-300/20 dark:text-accent-light/80 dark:hover:bg-navy-300/20 transition"
+    >
+      <i class="fas fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="overflow-y-auto flex-1">
+    <ul class="flex flex-col px-4 py-4 font-inter text-sm space-y-1">
+      <li><a href="/dashboard/crm-analytics" class="hover:text-primary">CRM Analytics</a></li>
+      <li><a href="/dashboard/orders" class="hover:text-primary">Orders</a></li>
+      <li><a href="/dashboard/personal" class="hover:text-primary">Personal</a></li>
+      <li><a href="/dashboard/meetings" class="hover:text-primary">Meetings</a></li>
+      <li><a href="/dashboard/project-boards" class="hover:text-primary">Project Boards</a></li>
+    </ul>
+    <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
+    <ul class="flex flex-col px-4 font-inter text-sm space-y-1">
+      <li><a href="/dashboard/widget-ui" class="hover:text-primary">Widget UI</a></li>
+      <li><a href="/dashboard/widget-contacts" class="hover:text-primary">Widget Contacts</a></li>
+    </ul>
+  </div>
+</div>
