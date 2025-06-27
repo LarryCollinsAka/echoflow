@@ -5,3 +5,37 @@ Testing setup?
 
 set PYTHONPATH=C:\laragon\www\echoflow
 pytest tests/test_admin_auth.py
+
+
+C:\laragon\www\echoflow>curl -X POST http://127.0.0.1:8000/auth/login -H "Content-Type: application/json" -d "{\"email\":\"admin@echoflow.com\", \"password\":\"adminpassword\"}"
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4Yjg3MjI4Ny0wYmI1LTQyZjMtOWNlYi1jMjQ0ZjY3NmJjMTkiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NTA5NjkwMjZ9.vRqVZMgqCFDJ-dAA_6Lrpfj2vGOZpRorOVM1wgOvEzs","token_type":"bearer"}
+C:\laragon\www\echoflow>
+
+. Protect Endpoints & Implement Authorization
+Add Depends(get_current_user) or similar to endpoints that should require authentication.
+Implement role-based access (e.g., admin vs. user) if your app needs it.
+2. User Registration & Profile Management
+Add /auth/register if not already there.
+Allow users to update their profile info, reset passwords, etc.
+3. Build Out Main App Features
+Start developing the core features of your app (e.g., CRUD for your main models).
+4. Input Validation & Error Handling
+Use Pydantic models for request and response schemas.
+Add clear error messages and exception handlers.
+5. Testing
+Write unit and integration tests for your auth and main endpoints.
+Try pytest and httpx for API testing.
+6. API Documentation
+Use FastAPI’s automatic docs at /docs and /redoc.
+Add summaries, descriptions, and examples to your endpoints.
+7. Security Enhancements
+Hash and salt passwords (you may already be doing this).
+Use HTTPS in production.
+Set proper CORS policies.
+8. Database Migrations
+Set up Alembic for managing schema changes.
+9. Deployment Prep
+Prepare for deployment (Dockerfile, production settings, gunicorn, etc.).
+Set up CI/CD if needed.
+10. Frontend Integration
+If you have a frontend, integrate it with your API and test flows (login, register, protected routes).

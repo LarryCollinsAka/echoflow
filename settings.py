@@ -7,9 +7,3 @@ load_dotenv(dotenv_path=BASE_DIR / ".env")
 from config import AppConfig
 
 settings = AppConfig()
-
-from config import AppConfig
-
-# Instantiate settings.
-settings = AppConfig()
-
