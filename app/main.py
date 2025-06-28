@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from settings import settings
 from routers import users, auth
+from routers import agents
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
@@ -25,6 +26,7 @@ app.add_middleware(
 # Routers
 app.include_router(users.router, prefix="/users", tags=["Users"])
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
+app.include_router(agents.router, prefix="/agents", tags=["Agents"])
 # You can uncomment these when ready
 # app.include_router(meetings.router, prefix="/meetings", tags=["Meetings"])
 # app.include_router(summaries.router, prefix="/summaries", tags=["Summaries"])
