@@ -21,7 +21,7 @@ def seed():
                 email=email,
                 full_name="Admin User",
                 password_hash=hash_password("adminpassword"),
-                role="ADMIN",  # or use your Enum: UserRole.ADMIN
+                role="ADMIN",  # use Enum: UserRole.ADMIN
             )
             db.add(admin)
             db.commit()
